@@ -14,22 +14,14 @@ Reusable and customizable filters for any list
 export enum PartnerFilterKeys {
   search = 'search',
   partner_types = 'partner_types',
-  cso_types = 'cso_types',
-  risk_ratings = 'risk_ratings',
-  sea_risk_ratings = 'sea_risk_ratings',
   psea_assessment_date_before = 'psea_assessment_date_before',
-  psea_assessment_date_after = 'psea_assessment_date_after',
   hidden = 'hidden'
 }
 
 export const selectedValueTypeByFilterKey: AnyObject = {
   [PartnerFilterKeys.search]: 'string',
   [PartnerFilterKeys.partner_types]: 'Array',
-  [PartnerFilterKeys.cso_types]: 'Array',
-  [PartnerFilterKeys.risk_ratings]: 'Array',
-  [PartnerFilterKeys.sea_risk_ratings]: 'Array',
   [PartnerFilterKeys.psea_assessment_date_before]: 'string',
-  [PartnerFilterKeys.psea_assessment_date_after]: 'string',
   [PartnerFilterKeys.hidden]: 'boolean'
 };
 
