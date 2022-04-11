@@ -255,6 +255,12 @@ export class EtoolsFilters extends LitElement {
         etools-dropdown-multi[disabled] {
           opacity: 60%;
         }
+        #filterMenu {
+          --paper-menu-button-content: {
+            overflow-y: auto;
+            overflow-x: hidden;
+          }
+        }
       </style>
       <div id="filters">${this.selectedFiltersTmpl(this.filters)}</div>
 
