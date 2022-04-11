@@ -1,6 +1,6 @@
 {
   "name": "@unicef-polymer/etools-filters",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Reusable and customizable filters for any list",
   "repository": {
     "type": "git",
