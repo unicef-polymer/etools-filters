@@ -14,6 +14,7 @@ import '@unicef-polymer/etools-dropdown/etools-dropdown-multi';
 import '@unicef-polymer/etools-dropdown/etools-dropdown';
 import '@unicef-polymer/etools-date-time/datepicker-lite';
 import '@unicef-polymer/etools-loading/etools-loading';
+import debounce from 'lodash-es/debounce';
 import {Callback} from '@unicef-polymer/etools-types';
 
 export enum EtoolsFilterTypes {
@@ -244,6 +245,12 @@ export class EtoolsFilters extends LitElement {
     return menuOptions;
   }
 
+  connectedCallback() {
+    this.afterFilterChange = debounce(this.afterFilterChange.bind(this), 1000);
+
+    super.connectedCallback();
+  }
+
   render() {
     this.setDefaultLastSelectedValues();
     // language=HTML
@@ -387,6 +394,10 @@ export class EtoolsFilters extends LitElement {
       return;
     }
     filterOption.selectedValue = currentSelectedVal;
+    this.afterFilterChange();
+  }
+
+  afterFilterChange() {
     this.requestUpdate().then(() => this.fireFiltersChangeEvent());
   }
 
