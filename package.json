@@ -40,7 +40,7 @@
     "@polymer/paper-toggle-button": "^3.0.1",
     "@unicef-polymer/etools-currency-amount-input": "^3.1.6",
     "@unicef-polymer/etools-date-time": "^3.0.1",
-    "@unicef-polymer/etools-dropdown": "3.7.12",
+    "@unicef-polymer/etools-dropdown": "^3.7.12",
     "@unicef-polymer/etools-loading": "^5.0.1",
     "@unicef-polymer/etools-types": "^1.11.5",
     "lit-element": "^2.5.1",
