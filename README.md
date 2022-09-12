@@ -9,7 +9,7 @@ Reusable and customizable filters for any list
   Example:
   For a list of partners, the parent app will define a file under the following format.
 
-  \*The collection of filters assigned to etools-filters is returned by getPartnerFilters() method.
+  *The collection of filters assigned to etools-filters is returned by getPartnerFilters() method.
 
 ```
 export enum PartnerFilterKeys {
