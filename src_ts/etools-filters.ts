@@ -16,6 +16,7 @@ import '@unicef-polymer/etools-date-time/datepicker-lite';
 import '@unicef-polymer/etools-loading/etools-loading';
 import debounce from 'lodash-es/debounce';
 import {Callback} from '@unicef-polymer/etools-types';
+import {getTranslation} from './utils/translation-helper';
 
 export enum EtoolsFilterTypes {
   Search,
@@ -50,12 +51,26 @@ export class EtoolsFilters extends LitElement {
   filterLoadingAbsolute = false;
 
   @property({type: String})
-  textClearAll = 'CLEAR ALL';
+  textClearAll!: string;
 
   @property({type: String})
-  textFilters = 'FILTERS';
+  textFilters!: string;
+  @property({type: String})
+  language!: string;
 
   lastSelectedValues: any = null;
+
+  constructor() {
+    super();
+    if (!this.language) {
+      this.language = window.localStorage.defaultLanguage || 'en';
+    }
+    this.handleLanguageChange = this.handleLanguageChange.bind(this);
+  }
+
+  handleLanguageChange(e: CustomEvent) {
+    this.language = e.detail.language;
+  }
 
   static get styles() {
     return [
@@ -136,7 +151,7 @@ export class EtoolsFilters extends LitElement {
         ?hidden="${!f.selected}"
         class="filter"
         label="${f.filterName}"
-        placeholder="Select"
+        placeholder="${getTranslation(this.language, 'SELECT')}"
         ?disabled="${f.disabled}"
         .options="${f.selectionOptions}"
         .optionValue="${f.optionValue ? f.optionValue : 'value'}"
@@ -249,6 +264,13 @@ export class EtoolsFilters extends LitElement {
     this.afterFilterChange = debounce(this.afterFilterChange.bind(this), 1000);
 
     super.connectedCallback();
+
+    document.addEventListener('language-changed', this.handleLanguageChange as any);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    document.removeEventListener('language-changed', this.handleLanguageChange as any);
   }
 
   render() {
@@ -273,12 +295,14 @@ export class EtoolsFilters extends LitElement {
 
       <div id="filters-selector">
         <paper-menu-button id="filterMenu" ignore-select horizontal-align="right">
-          <paper-button class="button" slot="dropdown-trigger">
+          <paper-button class="button" slot="dropdown-trigger" style="text-transform: uppercase;">
             <iron-icon icon="filter-list"></iron-icon>
-            ${this.textFilters}
+            ${this.textFilters || getTranslation(this.language, 'FILTERS')}
           </paper-button>
           <div slot="dropdown-content" class="clear-all-filters">
-            <paper-button @tap="${this.clearAllFilters}" class="secondary-btn">${this.textClearAll}</paper-button>
+            <paper-button @tap="${this.clearAllFilters}" class="secondary-btn" style="text-transform: uppercase;"
+              >${this.textClearAll || getTranslation(this.language, 'CLEAR_ALL')}</paper-button
+            >
           </div>
           <paper-listbox slot="dropdown-content" multi> ${this.filterMenuOptions(this.filters)} </paper-listbox>
         </paper-menu-button>

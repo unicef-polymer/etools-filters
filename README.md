@@ -69,3 +69,7 @@ export function getPartnerFilters() {
 ```
 
 - After a value is selected in a filter, the `filter-change` event if fired. The event detail contains all filters under the format [{'filterKey': 'selectedValues'}]
+
+## Internationalization
+
+- The component listens to the `language-changed` event and self translates
