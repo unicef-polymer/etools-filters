@@ -207,7 +207,7 @@ export class EtoolsFilters extends LitElement {
       return html`<etools-loading
         source="filters-loading"
         ?absolute=${this.filterLoadingAbsolute}
-        loading-text="Loading..."
+        loading-text="${getTranslation(this.language, 'LOADING')}"
         active
       ></etools-loading>`;
     }
