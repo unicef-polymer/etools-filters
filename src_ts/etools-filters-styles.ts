@@ -98,7 +98,7 @@ export const etoolsFiltersStyles = css`
   }
 
   #filterMenu paper-listbox {
-    min-width: 250px;
+    max-width: 100%;
   }
 
   #filterMenu paper-icon-item {
