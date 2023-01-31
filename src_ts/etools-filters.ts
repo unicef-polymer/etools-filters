@@ -207,7 +207,7 @@ export class EtoolsFilters extends LitElement {
       return html`<etools-loading
         source="filters-loading"
         ?absolute=${this.filterLoadingAbsolute}
-        loading-text="Loading..."
+        loading-text="${getTranslation(this.language, 'LOADING')}"
         active
       ></etools-loading>`;
     }
@@ -250,6 +250,7 @@ export class EtoolsFilters extends LitElement {
           @tap="${this.selectFilter}"
           ?disabled="${f.disabled}"
           ?selected="${f.selected}"
+          class="${this.getSelectedClass(f.selected)}"
           data-filter-key="${f.filterKey}"
         >
           <iron-icon icon="check" slot="item-icon" ?hidden="${!f.selected}"></iron-icon>
@@ -283,12 +284,6 @@ export class EtoolsFilters extends LitElement {
         }
         etools-dropdown-multi[disabled] {
           opacity: 60%;
-        }
-        #filterMenu {
-          --paper-menu-button-content: {
-            overflow-y: auto;
-            overflow-x: hidden;
-          }
         }
       </style>
       <div id="filters">${this.selectedFiltersTmpl(this.filters)}</div>
@@ -385,6 +380,10 @@ export class EtoolsFilters extends LitElement {
       throw new Error(`[EtoolsFilters.getFilterOption] Filter option not found by filterKey: "${filterKey}"`);
     }
     return filterOption;
+  }
+
+  getSelectedClass(isSelected: boolean) {
+    return isSelected ? 'iron-selected' : '';
   }
 
   textInputChange(e: CustomEvent) {
