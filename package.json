@@ -1,6 +1,6 @@
 {
   "name": "@unicef-polymer/etools-filters",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Reusable and customizable filters for any list",
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
     "@polymer/paper-toggle-button": "^3.0.1",
     "@unicef-polymer/etools-currency-amount-input": "^4.0.2",
     "@unicef-polymer/etools-date-time": "^3.1.0",
-    "@unicef-polymer/etools-dropdown": "^4.0.6",
+    "@unicef-polymer/etools-dropdown": "^4.0.9",
     "@unicef-polymer/etools-loading": "^6.0.1",
     "@unicef-polymer/etools-types": "^1.11.11",
     "lit-element": "^2.5.1",
