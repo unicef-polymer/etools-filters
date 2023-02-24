@@ -17,6 +17,8 @@ import '@unicef-polymer/etools-loading/etools-loading';
 import debounce from 'lodash-es/debounce';
 import {Callback} from '@unicef-polymer/etools-types';
 import {getTranslation} from './utils/translation-helper';
+import {PaperMenuButton} from '@polymer/paper-menu-button/paper-menu-button';
+import {PaperButtonElement} from '@polymer/paper-button/paper-button';
 
 export enum EtoolsFilterTypes {
   Search,
@@ -289,7 +291,34 @@ export class EtoolsFilters extends LitElement {
       <div id="filters">${this.selectedFiltersTmpl(this.filters)}</div>
 
       <div id="filters-selector">
-        <paper-menu-button id="filterMenu" ignore-select horizontal-align="right">
+        <paper-menu-button
+          id="filterMenu"
+          ignore-select
+          horizontal-align="right"
+          @paper-dropdown-open="${(e: CustomEvent) => {
+            const clearButton = (e.target as PaperMenuButton).querySelector(
+              "[slot='dropdown-content'] paper-button"
+            ) as PaperButtonElement;
+            // Timeout required in order to be able to set focus, otherwise is not setting focus
+            setTimeout(() => {
+              clearButton.focus();
+            }, 100);
+          }}"
+          @focused-changed="${(e: CustomEvent) => {
+            const target = e.target as PaperMenuButton;
+            if (!target.opened) {
+              return;
+            }
+
+            // Timeout required in order to avoid catching the fast toggle of focus
+            // on paper-menu-button when navigating between dropdown items
+            setTimeout(() => {
+              if (!target?.focused) {
+                target.close();
+              }
+            }, 0);
+          }}"
+        >
           <paper-button class="button" slot="dropdown-trigger" style="text-transform: uppercase;">
             <iron-icon icon="filter-list"></iron-icon>
             ${this.textFilters || getTranslation(this.language, 'FILTERS')}

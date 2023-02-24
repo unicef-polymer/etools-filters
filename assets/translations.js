@@ -29,6 +29,12 @@ const translations = {
     SELECT: 'Selectează',
     LOADING: 'Se încarcă...'
   },
+  es: {
+    FILTERS: 'Filtros',
+    CLEAR_ALL: 'Limpiar todo',
+    SELECT: 'Seleccionar',
+    LOADING: 'Cargando...'
+  },
   ar: {
     FILTERS: 'المرشحات',
     CLEAR_ALL: 'امسح الكل',
