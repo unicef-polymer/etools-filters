@@ -71,7 +71,7 @@ export const etoolsFiltersStyles = css`
     justify-content: center;
     align-self: stretch;
 
-    padding-inline-end: 8px;
+    padding-inline-start: 8px;
     margin-top: 8px;
     margin-bottom: 8px;
     margin-inline-start: 24px;
@@ -157,7 +157,7 @@ export const etoolsFiltersStyles = css`
     }
     #filters-selector {
       border-inline-start: none;
-      padding-inline-end: 8px;
+      padding-inline-start: 8px;
       margin-top: 0;
       margin-bottom: 0;
       margin-inline-start: 0;
