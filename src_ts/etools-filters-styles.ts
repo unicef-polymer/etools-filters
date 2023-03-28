@@ -20,7 +20,7 @@ export const etoolsFiltersStyles = css`
     flex-wrap: wrap;
     flex: 1;
 
-    margin-right: auto;
+    margin-inline-end: auto;
   }
 
   #filters .filter {
@@ -62,7 +62,7 @@ export const etoolsFiltersStyles = css`
   }
 
   #filters .filter.toggle paper-toggle-button {
-    margin-left: 10px;
+    margin-inline-start: 10px;
   }
 
   #filters-selector {
@@ -71,7 +71,7 @@ export const etoolsFiltersStyles = css`
     justify-content: center;
     align-self: stretch;
 
-    padding-inline-end: 8px;
+    padding-inline-start: 8px;
     margin-top: 8px;
     margin-bottom: 8px;
     margin-inline-start: 24px;
@@ -94,7 +94,7 @@ export const etoolsFiltersStyles = css`
   }
 
   #filterMenu .button iron-icon {
-    margin-right: 5px;
+    margin-inline-end: 5px;
   }
 
   #filterMenu paper-listbox {
@@ -107,7 +107,7 @@ export const etoolsFiltersStyles = css`
   }
 
   #filterMenu paper-icon-item iron-icon {
-    margin-right: 8px;
+    margin-inline-end: 8px;
   }
 
   #filterMenu paper-icon-item[selected] {
@@ -134,13 +134,13 @@ export const etoolsFiltersStyles = css`
 
     align-items: center;
     color: var(--primary-color, rgba(0, 0, 0, 0.87));
-    padding-right: 16px;
+    padding-inline-end: 16px;
     border-bottom: 1px solid var(--light-divider-color, rgba(0, 0, 0, 0.12));
   }
 
   @media (min-width: 577px) {
     #filters > *:not(:last-child) {
-      margin-right: 16px;
+      margin-inline-end: 16px;
     }
   }
 
@@ -157,7 +157,7 @@ export const etoolsFiltersStyles = css`
     }
     #filters-selector {
       border-inline-start: none;
-      padding-inline-end: 8px;
+      padding-inline-start: 8px;
       margin-top: 0;
       margin-bottom: 0;
       margin-inline-start: 0;

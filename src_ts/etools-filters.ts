@@ -95,7 +95,7 @@ export class EtoolsFilters extends LitElement {
         }
 
         .date {
-          margin-right: 16px;
+          margin-inline-end: 16px;
         }
       `
     ];
