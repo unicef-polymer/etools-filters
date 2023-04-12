@@ -294,14 +294,14 @@ export class EtoolsFilters extends LitElement {
         <paper-menu-button
           id="filterMenu"
           ignore-select
-          horizontal-align="right"
+          horizontal-align
           @paper-dropdown-open="${(e: CustomEvent) => {
-            const clearButton = (e.target as PaperMenuButton).querySelector(
-              "[slot='dropdown-content'] paper-button"
+            const dropdownContent = (e.target as PaperMenuButton).querySelector(
+              "[slot='dropdown-content']"
             ) as PaperButtonElement;
             // Timeout required in order to be able to set focus, otherwise is not setting focus
             setTimeout(() => {
-              clearButton.focus();
+              dropdownContent.focus();
             }, 100);
           }}"
           @focused-changed="${(e: CustomEvent) => {
