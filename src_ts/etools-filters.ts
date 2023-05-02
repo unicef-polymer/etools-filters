@@ -65,6 +65,7 @@ export class EtoolsFilters extends LitElement {
   constructor() {
     super();
     if (!this.language) {
+      // @ts-ignore
       this.language = window.EtoolsLanguage || 'en';
     }
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
