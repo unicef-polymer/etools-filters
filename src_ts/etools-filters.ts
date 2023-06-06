@@ -40,6 +40,7 @@ export interface EtoolsFilter {
   hideSearch?: boolean; // used only by dropdowns
   optionValue?: string; // used only by dropdowns
   optionLabel?: string; // used only by dropdowns
+  unprefixName?: boolean; // used only by dropdowns
 }
 
 @customElement('etools-filters')
@@ -141,6 +142,7 @@ export class EtoolsFilters extends LitElement {
         horizontal-align="left"
         no-dynamic-align
         enable-none-option
+        ?unprefix-name="${f.unprefixName}"
       >
       </etools-dropdown>
     `;
@@ -167,6 +169,7 @@ export class EtoolsFilters extends LitElement {
         .minWidth="${f.minWidth}"
         horizontal-align="left"
         no-dynamic-align
+        ?unprefix-name="${f.unprefixName}"
       >
       </etools-dropdown-multi>
     `;
